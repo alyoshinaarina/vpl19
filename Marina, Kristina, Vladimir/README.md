@@ -46,6 +46,7 @@ While planning and trying to realize all of our aspirations, we learned:
 + that servers may be stubborn and all the tfidf dreams are to crush against 429
 + how to use chi-squared and why
 + how to make Telegram bot accept files
+
 and so on!
 
 So... if you liked our project, please, let us know! We've been working so hard and we'd like to be aware whether it turned out to be good. 
