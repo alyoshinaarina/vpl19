@@ -15,6 +15,10 @@ In order to make process more comportable, console logging is enabled.
 ### HOW DOES IT WORK? 
 Keyworder compares a file you send it and National Russial Language Corpora in terms word frequency. It is estimated that those words which possess chi-squared value less than 0.003932 appear to be significant in determining the category of the text given. However, only top of the list Keyworder provides is likely to be considered actual keywords. For more detailes access google.com.
 
+**NB: for some computers it is not enough to use built-in proxy to process a file. In this case, use your VPN.**
+
+*Sometimes built-in proxy gets overloaded and stops working. If that occurs, contact Marina Kazyulina or use **kw detection.py***
+
 ### HOW DO I USE IT WITHOUT ALL THAT TELEGRAM BOT THING?
 If you did not happen to have your Telegram account or dislike the idea of chatting with bot for some reason, there is still a way for you to automatically detect key words in your text. For this purpose dowload the following:
 + 'kw_detection.py" 
@@ -29,5 +33,7 @@ Make sure they share the same folder. Add the file you want to know key words of
 + **frequencies.py** is a python file which describes the process of creating **frequencies.json**.
 + **frequencies.json** is a json file containing information of all the lemmas and the number of their entrances in ruscorpora.
 + **kw detection.py** is a python file that containes code for detecting all of the dignificant words in the **file.txt** and outputs it on console. 
++ **file.txt** is an example of the file that **kw detection.py** processes. 
 + **setup.py** containes token and proxy for @Key_words_bot to work.
 + **keyworder.py** is a script which allows @Key_words_bot to work and loggs every action on console. 
+
