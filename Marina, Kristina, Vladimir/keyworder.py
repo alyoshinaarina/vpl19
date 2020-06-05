@@ -10,6 +10,13 @@ from pymystem3 import Mystem
 from string import punctuation
 import json
 
+# Enable logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+
+logger = logging.getLogger(__name__)
+
+
 mystem = Mystem()
 russian_stopwords = stopwords.words("russian") + ["ко"]
 
@@ -32,18 +39,20 @@ def help(update: Update, context: CallbackContext):
                               "of doc is .txt. Hope you'll enjoy!")
 
 def get_file(update: Update, context: CallbackContext):
-    print("get file function is started")
+    logger.info('get_file function is started')
     overall_start = t.time()
     document = update["message"]["document"]["file_id"]
     file = context.bot.getFile(file_id=document)
     file.download("file.txt")
     key_words, tokens = keywords()
+    top = key_words[:10]
     overall_finish = t.time()
     update.message.reply_text(f"Your file is {len(tokens)} words long.\nAccording to my findings, your file containes {len(key_words)} "
-                              f"significant words.\nIt took {round(overall_finish - overall_start)} seconds to detect them. Here are top 10 of keywords:")
+                              f"significant words.\nIt took {round(overall_finish - overall_start)} seconds to detect them.\nHere are top ten of keywords:\n" + "\n".join(top))
+
 
 def keywords():
-    print("key words is started")
+    logger.info("keywords function is started")
     # making a list of all lemmas from the doc
     start = t.time()
     with open("file.txt", encoding="utf8") as doc:
@@ -53,7 +62,7 @@ def keywords():
                   and token.strip() not in punctuation]
         tokens = [token for token in tokens if token.isalpha() and len(token) > 1]
     finish = t.time()
-    print(f"the doc is lemmatized in {round(start - finish)} secs")
+    logger.info(f"the doc is lemmatized in {round(start - finish)} secs")
     doc_frqn, corp_frqn = (frequencies(tokens))
     expected = exp(doc_frqn, corp_frqn)
     keywords = chivalue(expected, doc_frqn)
@@ -62,8 +71,8 @@ def keywords():
     for i in keywords:
         if i[1] <= Q:
             kw.append(i[0])
-    print("keywords list is formed")
-    print("keywords function is finished")
+    logger.info(f"keywords list is formed")
+    logger.info("keywords function is finished")
     return(kw, tokens)
 
 
@@ -77,7 +86,7 @@ def frequencies(tokens):
         for i in corpora:
             corp_total += corpora[i]
     finish = t.time()
-    print(f"frequencies.json are open and ready to be used in {start - finish} secs")
+    logger.info(f"frequencies.json is open and ready to be used")
 
     start = t.time()
     doc_frqn = {}
@@ -90,7 +99,7 @@ def frequencies(tokens):
         except KeyError:
             corp_frqn[token] = 0
     finish = t.time()
-    print(f"numbers of entrances is calculated succesfully in {finish - start} secs")
+    logger.info(f"numbers of entrances is calculated succesfully in round({finish - start}) secs")
     return doc_frqn, corp_frqn
 
 def exp(doc_frqn, corp_frqn):
@@ -101,7 +110,7 @@ def exp(doc_frqn, corp_frqn):
         c = 1 - a
         d = 1 - b
         expected[token] = ((a + b) * (a + c)) / (a + b + c + d)
-    print("expected frequency is calculated successfully ")
+    logger.info("expected frequency is calculated successfully")
     return expected
 
 def chivalue(expected, doc_frqn):
@@ -113,8 +122,10 @@ def chivalue(expected, doc_frqn):
     l = list(chi.items())
     l.sort(key=lambda i: i[1])
     l = l[::-1]
-    print("chi2 value is calculated successfully")
+    logger.info(("chi2 value is calculated successfully"))
     return l
+
+
 
 
 def main():
@@ -136,5 +147,5 @@ def main():
 
 
 if __name__ == '__main__':
-    print("Bot is started")
+    logger.info('Bot is started')
     main()
