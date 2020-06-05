@@ -3,7 +3,7 @@
 ## Welcome to Keyworder Telegram bot. It provides a list of keywords for a document sent. 
 
 ### HOW DO I USE IT? 
-In order to use our bot you have to dowload the following files:
+In order to use our bot you have to download the following files:
 - frequency.json 
 - keyworder.py
 - setup.py
@@ -32,9 +32,9 @@ Make sure they share the same folder. Add the file you want to know key words of
 + **ugrams from ruscorpora.txt** is a list of unigrams and the number of their entrances provided by ruscorpora.ru. 
 + **frequencies.py** is a python file which describes the process of creating **frequencies.json**.
 + **frequencies.json** is a json file containing information of all the lemmas and the number of their entrances in ruscorpora.
-+ **kw detection.py** is a python file that containes code for detecting all of the significant words in the **file.txt** and outputs it on console. 
++ **kw detection.py** is a python file that contains code for detecting all of the significant words in the **file.txt** and outputs it on console. 
 + **file.txt** is an example of the file that **kw detection.py** processes. 
-+ **setup.py** containes token and proxy for @Key_words_bot to work.
++ **setup.py** contains token and proxy for @Key_words_bot to work.
 + **keyworder.py** is a script which allows @Key_words_bot to work and loggs every action on console. 
 
 #### Special thanks to Arina!!!
