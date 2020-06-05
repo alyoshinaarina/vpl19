@@ -27,7 +27,7 @@ If you did not happen to have your Telegram account or dislike the idea of chatt
 Make sure they share the same folder. Add the file you want to know key words of, **replace "file.txt"** in the code (follow comments in code) and voila, your keywords are ready to be discovered. 
 
 
-#### AND WHAT ARE ALL OF THOSE FILES FOR? 
+### AND WHAT ARE ALL OF THOSE FILES FOR? 
 + **README.md** is for everyone to get the idea of what is going on in this repository. 
 + **ugrams from ruscorpora.txt** is a list of unigrams and the number of their entrances provided by ruscorpora.ru. 
 + **frequencies.py** is a python file which describes the process of creating **frequencies.json**.
@@ -37,7 +37,7 @@ Make sure they share the same folder. Add the file you want to know key words of
 + **setup.py** containes token and proxy for @Key_words_bot to work.
 + **keyworder.py** is a script which allows @Key_words_bot to work and loggs every action on console. 
 
-##### Special thanks to Arina!!!
+#### Special thanks to Arina!!!
 We would like to say thank you for such an interesting task, it was a pleasure to do it! 
 While planning and trying to realize all of our aspirations, we learned:
 + how to work with Jupiter Notebook
