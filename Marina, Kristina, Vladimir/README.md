@@ -37,3 +37,16 @@ Make sure they share the same folder. Add the file you want to know key words of
 + **setup.py** containes token and proxy for @Key_words_bot to work.
 + **keyworder.py** is a script which allows @Key_words_bot to work and loggs every action on console. 
 
+##### Special thanks to Arina!!!
+We would like to say thank you for such an interesting task, it was a pleasure to do it! 
+While planning and trying to realize all of our aspirations, we learned:
++ how to work with Jupiter Notebook
++ how to work with Kaggle
++ what is GPU and why it didn't appear helpful
++ that servers may be stubborn and all the tfidf dreams are to crush against 429
++ how to use chi-squared and why
++ how to make Telegram bot accept files
+and so on!
+
+So... if you liked our project, please, let us know! We've been working so hard and we'd like to be aware whether it turned out to be good. 
+
