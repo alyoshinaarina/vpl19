@@ -49,5 +49,5 @@ While planning and trying to realize all of our aspirations, we learned:
 
 and so on!
 
-So... if you liked our project, please, let us know! We've been working so hard and we'd like to be aware whether it turned out to be good. 
+So... if you liked our project, please let us know! We've been working so hard and we'd like to be aware whether it turned out to be good. 
 
