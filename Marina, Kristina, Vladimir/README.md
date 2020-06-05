@@ -12,12 +12,12 @@ Make sure they are in the same repository and run keyworder.py. As long as the c
 
 In order to make process more comfortable, console logging is enabled.
 
-### HOW DOES IT WORK? 
-Keyworder compares a file you send it and National Russian Language Corpora in terms word frequency. It is estimated that those words which possess chi-squared value less than 0.003932 appear to be significant in determining the category of the text given. However, only top of the list Keyworder provides is likely to be considered actual keywords. For more detailes access google.com.
-
 **NB: for some computers it is not enough to use built-in proxy to process a file. In this case, use your VPN.**
 
 *Sometimes built-in proxy gets overloaded and stops working. If that occurs, contact Marina Kazyulina or use **kw detection.py***
+
+### HOW DOES IT WORK? 
+Keyworder compares a file you send it and National Russian Language Corpora in terms word frequency. It is estimated that those words which possess chi-squared value less than 0.003932 appear to be significant in determining the category of the text given. However, only top of the list Keyworder provides is likely to be considered actual keywords. For more detailes access google.com.
 
 ### HOW DO I USE IT WITHOUT ALL THAT TELEGRAM BOT THING?
 If you did not happen to have your Telegram account or dislike the idea of chatting with bot for some reason, there is still a way for you to automatically detect key words in your text. For this purpose dowload the following:
