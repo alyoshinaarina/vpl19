@@ -5,7 +5,7 @@
 ### HOW DO I USE IT? 
 In order to use our bot you have to dowload the following files:
 - frequency.json 
-- keyworder.py. 
+- keyworder.py
 - setup.py
 
 Make sure they are in the same repository and run keyworder.py. As long as the code is in execution, you can chat with Keyworder bot (@Key_words_bot). Follow instructions it sends you (\help)
