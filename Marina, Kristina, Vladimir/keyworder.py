@@ -25,7 +25,11 @@ def start(update: Update, context: CallbackContext):
     return text
 
 def help(update: Update, context: CallbackContext):
-    update.message.reply_text("In order to find key words in your document it is required that you send me a message containing document only. Make sure there are no other charachters. Preferred type of doc is .txt. Hope you'll enjoy!")
+    update.message.reply_text("In order to find key words in your document "
+                              "it is required that you send me a message "
+                              "containing document only. Make sure there "
+                              "are no other charachters. Preferred type "
+                              "of doc is .txt. Hope you'll enjoy!")
 
 def get_file(update: Update, context: CallbackContext):
     print("get file function is started")
@@ -35,11 +39,8 @@ def get_file(update: Update, context: CallbackContext):
     file.download("file.txt")
     key_words, tokens = keywords()
     overall_finish = t.time()
-    update.message.reply_text(f"According to my findings, your file containes {len(key_words)} significant words.")
-    update.message.reply_text(f"It took {overall_finish - overall_start} seconds.")
-    update.message.reply_text(f"The length of your doc is {len(tokens)} words")
-    update.message.reply_text(" ".join(key_words[:10]))
-
+    update.message.reply_text(f"Your file is {len(tokens)} words long.\nAccording to my findings, your file containes {len(key_words)} "
+                              f"significant words.\nIt took {round(overall_finish - overall_start)} seconds to detect them. Here are top 10 of keywords:")
 
 def keywords():
     print("key words is started")
@@ -52,9 +53,23 @@ def keywords():
                   and token.strip() not in punctuation]
         tokens = [token for token in tokens if token.isalpha() and len(token) > 1]
     finish = t.time()
-    print(f"the doc is lemmatized in {start - finish} secs")
+    print(f"the doc is lemmatized in {round(start - finish)} secs")
+    doc_frqn, corp_frqn = (frequencies(tokens))
+    expected = exp(doc_frqn, corp_frqn)
+    keywords = chivalue(expected, doc_frqn)
+    Q = 0.003932
+    kw = []
+    for i in keywords:
+        if i[1] <= Q:
+            kw.append(i[0])
+    print("keywords list is formed")
+    print("keywords function is finished")
+    return(kw, tokens)
 
-    #opening the json with all the frequencies of words from NCRL and counting the length of the corpora
+
+
+def frequencies(tokens):
+    # opening the json with all the frequencies of words from NCRL and counting the length of the corpora
     start = t.time()
     with open("frequencies.json") as doc:
         corpora = json.load(doc)
@@ -63,7 +78,6 @@ def keywords():
             corp_total += corpora[i]
     finish = t.time()
     print(f"frequencies.json are open and ready to be used in {start - finish} secs")
-    print(corpora["солнце"])
 
     start = t.time()
     doc_frqn = {}
@@ -77,7 +91,9 @@ def keywords():
             corp_frqn[token] = 0
     finish = t.time()
     print(f"numbers of entrances is calculated succesfully in {finish - start} secs")
+    return doc_frqn, corp_frqn
 
+def exp(doc_frqn, corp_frqn):
     expected = {}
     for token in doc_frqn.keys():
         a = doc_frqn[token]
@@ -85,31 +101,20 @@ def keywords():
         c = 1 - a
         d = 1 - b
         expected[token] = ((a + b) * (a + c)) / (a + b + c + d)
-
     print("expected frequency is calculated successfully ")
+    return expected
 
+def chivalue(expected, doc_frqn):
     chi = {}
     for token in expected.keys():
         o = doc_frqn[token]
         e = expected[token]
         chi[token] = ((o - e) ** 2) / e
-
     l = list(chi.items())
     l.sort(key=lambda i: i[1])
     l = l[::-1]
     print("chi2 value is calculated successfully")
-    print(l)
-
-    Q = 0.003932
-
-    kw = []
-    for i in l:
-        if i[1] <= Q:
-            kw.append(i[0])
-    print("keywords list is formed")
-    print("keywords function is finished")
-    print(" ".join(kw))
-    return(kw, tokens)
+    return l
 
 
 def main():
