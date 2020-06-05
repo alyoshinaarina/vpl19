@@ -8,9 +8,9 @@ In order to use our bot you have to dowload the following files:
 - keyworder.py
 - setup.py
 
-Make sure they are in the same repository and run keyworder.py. As long as the code is in execution, you can chat with Keyworder bot (@Key_words_bot). Follow instructions it sends you (\help)
+Make sure they are in the same repository and run keyworder.py. As long as the code is in execution, you can chat with Keyworder bot (@Key_words_bot). Follow instructions it sends you (/help)
 
-In order to make process more comportable, console logging is enabled.
+In order to make process more comfortable, console logging is enabled.
 
 ### HOW DOES IT WORK? 
 Keyworder compares a file you send it and National Russial Language Corpora in terms word frequency. It is estimated that those words which possess chi-squared value less than 0.003932 appear to be significant in determining the category of the text given. However, only top of the list Keyworder provides is likely to be considered actual keywords. For more detailes access google.com.
