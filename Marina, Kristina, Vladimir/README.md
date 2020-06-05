@@ -29,10 +29,10 @@ Make sure they share the same folder. Add the file you want to know key words of
 
 #### AND WHAT ARE ALL OF THOSE FILES FOR? 
 + **README.md** is for everyone to get the idea of what is going on in this repository. 
-+ **ugrams from ruscorpora.txt** are the list unigrams and the number of their entrances provided by ruscorpora.ru. 
++ **ugrams from ruscorpora.txt** is a list of unigrams and the number of their entrances provided by ruscorpora.ru. 
 + **frequencies.py** is a python file which describes the process of creating **frequencies.json**.
 + **frequencies.json** is a json file containing information of all the lemmas and the number of their entrances in ruscorpora.
-+ **kw detection.py** is a python file that containes code for detecting all of the dignificant words in the **file.txt** and outputs it on console. 
++ **kw detection.py** is a python file that containes code for detecting all of the significant words in the **file.txt** and outputs it on console. 
 + **file.txt** is an example of the file that **kw detection.py** processes. 
 + **setup.py** containes token and proxy for @Key_words_bot to work.
 + **keyworder.py** is a script which allows @Key_words_bot to work and loggs every action on console. 
